@@ -50,5 +50,11 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'error',
         'react/react-in-jsx-scope': 'off',
         'react-compiler/react-compiler': 'error',
+        'prettier/prettier': [
+            'error',
+            {
+                endOfLine: 'auto',
+            },
+        ],
     },
 }

@@ -3,7 +3,7 @@ import styles from './Button.module.css';
 
 type Props = {
     text: string;
-    changeTrigger: () => void;
+    onClick: () => void;
 };
 
 class Button extends Component<Props> {
@@ -16,7 +16,7 @@ class Button extends Component<Props> {
             <button
                 type="button"
                 className={styles.button}
-                onClick={() => this.props.changeTrigger()}
+                onClick={() => this.props.onClick()}
             >
                 {this.props.text}
             </button>

@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format:fix": "prettier --write ./src",
-    "prepare": "husky"
+    "prepare": "cd .. && husky rss-khomtchikanastasiya-REACT2024Q3/.husky"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -36,11 +36,11 @@
   },
   "husky": {    
    "hooks": {      
-     "pre-commit": "lint-staged", 
-     "pre-push": "YOUR_COMMAND_HERE"   
+     "pre-commit": "lint-staged"  
    }  
   },
   "lint-staged": {    
-   "*.(ts|tsx)": ["npm run format:fix", "git add"]  
+   "*.(ts|tsx,css)": ["npm run format:fix"],
+   "*.(ts|tsx)": ["npm run lint"]
   }
 }

@@ -17,19 +17,19 @@ class PersonItem extends Component<Props> {
                 <h4 className={styles.name}>{this.props.personData.name}</h4>
                 <p>{this.props.personData.homeworld}</p>
                 <h3 className={styles.title}>Films:</h3>
-                <p>
+                <div>
                     {this.props.personData.films}
                     {this.props.personData.films.map((film, index) => (
                         <div key={index}>{film}</div>
                     ))}
-                </p>
+                </div>
                 <h3 className={styles.title}>Starships:</h3>
-                <p>
+                <div>
                     {this.props.personData.starships}
                     {this.props.personData.starships.map((ship, index) => (
                         <div key={index}>{ship}</div>
                     ))}
-                </p>
+                </div>
             </div>
         );
     }

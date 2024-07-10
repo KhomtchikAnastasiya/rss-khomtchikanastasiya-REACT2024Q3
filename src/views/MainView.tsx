@@ -24,11 +24,13 @@ class MainView extends Component {
     }
 
     componentDidMount() {
-        if (this.storageRequest !== '' && this.isStorageTested === false) {
-            this.setState({
-                searchRequest: this.storageRequest,
-                hasError: false,
-            });
+        if (this.isStorageTested === false) {
+            if (this.storageRequest !== null) {
+                this.setState({
+                    searchRequest: this.storageRequest,
+                    hasError: false,
+                });
+            }
             this.isStorageTested = true;
         }
     }

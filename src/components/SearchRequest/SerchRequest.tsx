@@ -1,5 +1,4 @@
 import { Component, ReactNode } from 'react';
-// import Button from '../Button/Button';
 import styles from './SearchRequest.module.css';
 
 interface Props {
@@ -25,10 +24,9 @@ class SearchRequest extends Component<Props, IState> {
             <div className={`block ${styles.wrapper}`}>
                 <input
                     type="text"
-                    placeholder={
-                        this.storageRequest ? this.storageRequest : 'Search'
-                    }
+                    placeholder={'Search'}
                     className={styles.input}
+                    value={this.state.inputData}
                     onChange={(event) =>
                         this.setState({ inputData: event.target.value })
                     }

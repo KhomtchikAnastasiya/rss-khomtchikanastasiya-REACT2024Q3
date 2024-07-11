@@ -1,57 +1,34 @@
-import { Component, ReactNode } from 'react';
-import SearchRequest from '../components/SearchRequest/SerchRequest';
+import { useState } from 'react';
+import SearchRequest from '../components/SearchRequest/SearchRequest';
 import SearchResponse from '../components/SearchResponse/SearchResponse';
 
-class MainView extends Component {
-    state = {
-        searchRequest: '',
-        hasError: false,
-    };
+function MainView() {
+    const [searchRequest, setSearchRequest] = useState(
+        localStorage.getItem('search') || ''
+    );
+    const [hasError, setHasError] = useState(false);
 
-    storageRequest = localStorage.getItem('search');
-    isStorageTested = false;
-
-    changeRequest = (newRequest: string) => {
-        this.setState({
-            searchRequest: newRequest,
-            hasError: false,
-        });
+    function changeRequest(newRequest: string): void {
+        setSearchRequest(newRequest);
         localStorage.setItem('search', newRequest);
-    };
-
-    triggerError() {
-        this.setState((prevState) => ({ ...prevState, hasError: true }));
     }
 
-    componentDidMount() {
-        if (this.isStorageTested === false) {
-            if (this.storageRequest !== null) {
-                this.setState({
-                    searchRequest: this.storageRequest,
-                    hasError: false,
-                });
-            }
-            this.isStorageTested = true;
-        }
+    function triggerError(): void {
+        setHasError(true);
     }
 
-    render(): ReactNode {
-        if (this.state.hasError) {
-            throw new Error('Error is triggered');
-        }
-        return (
-            <>
-                <SearchRequest changeRequest={this.changeRequest} />
-                <SearchResponse
-                    searchRequest={this.state.searchRequest}
-                    key={this.state.searchRequest}
-                />
-                <button type="button" onClick={() => this.triggerError()}>
-                    Trigger an error
-                </button>
-            </>
-        );
+    if (hasError) {
+        throw new Error('Error is triggered');
     }
+    return (
+        <>
+            <SearchRequest changeRequest={changeRequest} />
+            <SearchResponse searchRequest={searchRequest} key={searchRequest} />
+            <button type="button" onClick={() => triggerError()}>
+                Trigger an error
+            </button>
+        </>
+    );
 }
 
 export default MainView;

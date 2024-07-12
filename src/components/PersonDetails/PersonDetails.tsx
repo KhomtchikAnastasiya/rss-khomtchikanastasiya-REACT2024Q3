@@ -1,4 +1,9 @@
-import { useLoaderData, useNavigate, useNavigation } from 'react-router-dom';
+import {
+    useLoaderData,
+    useNavigate,
+    useNavigation,
+    useParams,
+} from 'react-router-dom';
 import styles from './PersonDetails.module.css';
 import { Person } from '../../types/types';
 
@@ -6,6 +11,7 @@ function PersonDetails() {
     const { personData } = useLoaderData() as { personData: Person };
     const navigation = useNavigation();
     const navigate = useNavigate();
+    const { pageId } = useParams();
 
     return (
         <div
@@ -20,7 +26,7 @@ function PersonDetails() {
                     src="/src/assets/img/close_icon.svg"
                     height={30}
                     onClick={() => {
-                        navigate('/');
+                        navigate(pageId ? `/page/${pageId}` : '/');
                     }}
                 />
             </div>

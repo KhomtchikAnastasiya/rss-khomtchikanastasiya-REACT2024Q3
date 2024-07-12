@@ -10,22 +10,36 @@ import {
 import Root from './routes/root/Root.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import Error from './components/Error/Error.tsx';
-import { detailsLoader, rootLoader } from './utils/loaders.ts';
+import { detailsLoader, pageLoader, rootLoader } from './utils/loaders.ts';
 import PersonDetails from './components/PersonDetails/PersonDetails.tsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route
-            path="/"
-            element={<Root />}
-            loader={rootLoader}
-            errorElement={<Error />}
-        >
+        <Route>
             <Route
-                path="details/:personId"
-                element={<PersonDetails />}
-                loader={detailsLoader}
-            />
+                path="/page/:pageId"
+                element={<Root />}
+                loader={pageLoader}
+                errorElement={<Error />}
+            >
+                <Route
+                    path="/page/:pageId/details/:personId"
+                    element={<PersonDetails />}
+                    loader={detailsLoader}
+                />
+            </Route>
+            <Route
+                path="/"
+                element={<Root />}
+                loader={rootLoader}
+                errorElement={<Error />}
+            >
+                <Route
+                    path="details/:personId"
+                    element={<PersonDetails />}
+                    loader={detailsLoader}
+                />
+            </Route>
         </Route>
     )
 );

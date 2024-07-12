@@ -1,18 +1,23 @@
 import styles from './PersonItem.module.css';
 import { Person } from '../../types/types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 interface Props {
     personData: Person;
 }
 
 function PersonItem({ personData }: Props) {
+    const { pageId } = useParams();
     const urlParts = personData.url.split('/');
     const personId = urlParts[urlParts.length - 2];
 
     return (
         <NavLink
-            to={`/details/${personId}`}
+            to={
+                pageId
+                    ? `/page/${pageId}/details/${personId}`
+                    : `/details/${personId}`
+            }
             className={({ isActive, isPending }) =>
                 isActive
                     ? `block ${styles.wrapper} ${styles.active}`

@@ -4,6 +4,7 @@ import SearchResponse from '../../components/SearchResponse/SearchResponse';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import { ResposeData } from '../../types/types';
 import styles from './Root.module.css';
+import Pagination from '../../components/Pagination/Pagination';
 
 function Root() {
     const { persons, search } = useLoaderData() as {
@@ -27,6 +28,7 @@ function Root() {
                 <SearchResponse persons={persons.results} key={search} />
                 <Outlet />
             </div>
+            <Pagination />
             <button type="button" onClick={() => triggerError()}>
                 Trigger an error
             </button>

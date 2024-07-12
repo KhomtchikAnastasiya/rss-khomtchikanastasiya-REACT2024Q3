@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-size: 1.2em;
+    color: #fd6d0c;
+}
+
+.wrapper a {
+    color: #fd6d0c;
+}
+
+.wrapper a:hover {
+    transform: scale(1.3);
+    font-weight: bold;
+}

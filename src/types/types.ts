@@ -1,11 +1,3 @@
-export enum MainSortField {
-    Quantity = 'QUANTITY',
-    CreatedAt = 'CREATED_AT',
-    ExpirationDate = 'EXPIRATION_DATE',
-    Size = 'SIZE',
-    BidQuantity = 'BID_QUANTITY',
-}
-
 export interface Person {
     name: string;
     height: string;

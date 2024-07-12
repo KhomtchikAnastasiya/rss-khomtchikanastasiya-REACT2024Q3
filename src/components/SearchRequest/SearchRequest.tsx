@@ -1,32 +1,31 @@
 import { useState } from 'react';
 import styles from './SearchRequest.module.css';
+import { Form } from 'react-router-dom';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
-interface Props {
-    changeRequest: (newRequest: string) => void;
-}
-
-function SearchRequest({ changeRequest }: Props) {
-    const [inputData, setInputData] = useState(
-        localStorage.getItem('search') || ''
-    );
+function SearchRequest() {
+    const [inputData, setInputData] = useState(useLocalStorage());
+    useLocalStorage(inputData.trim());
 
     return (
-        <div className={`block ${styles.wrapper}`}>
+        <Form
+            id="search-form"
+            role="search"
+            className={`block ${styles.wrapper}`}
+        >
             <input
-                type="text"
-                placeholder={'Search'}
+                id="search"
+                name="search"
+                type="search"
+                placeholder="Search"
                 className={styles.input}
-                value={inputData}
+                defaultValue={inputData}
                 onChange={(event) => setInputData(event.target.value)}
             />
-            <button
-                type="button"
-                className={styles.button}
-                onClick={() => changeRequest(inputData.trim())}
-            >
+            <button type="submit" className={styles.button}>
                 Search
             </button>
-        </div>
+        </Form>
     );
 }
 

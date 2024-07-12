@@ -1,5 +1,5 @@
 import ErrorBoundary from './components/ErrorBoundary';
-import MainView from './views/MainView';
+import MainView from './routes/root/Root';
 
 function App() {
     return (

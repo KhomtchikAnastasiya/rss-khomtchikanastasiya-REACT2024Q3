@@ -11,16 +11,15 @@
 }
 
 .wrapper {
-    max-width: 90%;
     overflow: hidden;
+    height: 100%;
 }
 
-.active {
-    border: #fd6d0c solid 2px;
-    background-color: #f097521e;
+.close {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.pending {
+.loading {
     opacity: 0.6;
-    background-color: #f097521e;
 }

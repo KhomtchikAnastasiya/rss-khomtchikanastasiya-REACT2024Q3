@@ -4,10 +4,10 @@ import {
     useNavigation,
     useParams,
 } from 'react-router-dom';
-import styles from './PersonDetails.module.css';
+import styles from './CardDetails.module.css';
 import { Person } from '../../types/types';
 
-function PersonDetails() {
+function CardDetails() {
     const { personData } = useLoaderData() as { personData: Person };
     const navigation = useNavigation();
     const navigate = useNavigate();
@@ -50,4 +50,4 @@ function PersonDetails() {
     );
 }
 
-export default PersonDetails;
+export default CardDetails;

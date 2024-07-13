@@ -11,7 +11,7 @@ import Root from './routes/root/Root.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import Error from './components/Error/Error.tsx';
 import { detailsLoader, pageLoader, rootLoader } from './utils/loaders.ts';
-import PersonDetails from './components/PersonDetails/PersonDetails.tsx';
+import CardDetails from './components/CardDetails/CardDetails.tsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
             >
                 <Route
                     path="/page/:pageId/details/:personId"
-                    element={<PersonDetails />}
+                    element={<CardDetails />}
                     loader={detailsLoader}
                 />
             </Route>
@@ -36,7 +36,7 @@ const router = createBrowserRouter(
             >
                 <Route
                     path="details/:personId"
-                    element={<PersonDetails />}
+                    element={<CardDetails />}
                     loader={detailsLoader}
                 />
             </Route>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SearchRequest from '../../components/SearchRequest/SearchRequest';
-import SearchResponse from '../../components/SearchResponse/SearchResponse';
+import CardList from '../../components/CardList/CardList';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import { ResposeData } from '../../types/types';
 import styles from './Root.module.css';
@@ -25,7 +25,7 @@ function Root() {
         <>
             <SearchRequest />
             <div className={styles.content_wrapper}>
-                <SearchResponse persons={persons.results} key={search} />
+                <CardList persons={persons.results} key={search} />
                 <Outlet />
             </div>
             <Pagination />

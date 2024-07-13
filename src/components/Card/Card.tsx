@@ -1,4 +1,4 @@
-import styles from './PersonItem.module.css';
+import styles from './Card.module.css';
 import { Person } from '../../types/types';
 import { NavLink, useParams } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ interface Props {
     personData: Person;
 }
 
-function PersonItem({ personData }: Props) {
+function Card({ personData }: Props) {
     const { pageId } = useParams();
     const urlParts = personData.url.split('/');
     const personId = urlParts[urlParts.length - 2];
@@ -46,4 +46,4 @@ function PersonItem({ personData }: Props) {
     );
 }
 
-export default PersonItem;
+export default Card;

@@ -1,0 +1,26 @@
+.name {
+    font-size: 3em;
+    color: #fd6d0c;
+    font-weight: 600;
+}
+
+.title {
+    font-size: 2em;
+    color: #fd6d0c;
+    font-weight: 500;
+}
+
+.wrapper {
+    max-width: 90%;
+    overflow: hidden;
+}
+
+.active {
+    border: #fd6d0c solid 2px;
+    background-color: #f097521e;
+}
+
+.pending {
+    opacity: 0.6;
+    background-color: #f097521e;
+}

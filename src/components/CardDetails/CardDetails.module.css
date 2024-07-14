@@ -1,0 +1,25 @@
+.name {
+    font-size: 3em;
+    color: #fd6d0c;
+    font-weight: 600;
+}
+
+.title {
+    font-size: 2em;
+    color: #fd6d0c;
+    font-weight: 500;
+}
+
+.wrapper {
+    overflow: hidden;
+    height: 100%;
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.loading {
+    opacity: 0.6;
+}

@@ -1,0 +1,17 @@
+.input {
+    border-radius: 10px;
+    border: 1px solid rgb(1, 1, 37);
+    padding: 0.6em 1.5em;
+    font-size: 1em;
+    font-weight: 500;
+    height: 50px;
+    min-width: 600px;
+    color: #fd6d0c;
+}
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
